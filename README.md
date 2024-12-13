@@ -34,3 +34,10 @@ The stock price data is preprocessed, normalized, and used to train an LSTM mode
        ```bash
        source venv/bin/activate
        ```
+### Step 3: Install Dependencies
+
+Before running the project, you'll need to install the necessary dependencies. The required packages are listed in the `requirements.txt` file. To install them, run the following command in your terminal:
+
+```bash
+pip install -r requirements.txt
+
