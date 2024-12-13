@@ -57,5 +57,53 @@ data.head()
 
 
 ```bash
+
 pip install -r requirements.txt
 
+```
+### Step 5: Preprocess the Data
+
+Before training the model, you need to preprocess the data by normalizing it and preparing it for model input.
+
+1. **Normalize the Data:**
+   Normalize the stock price data to a range between 0 and 1 using `MinMaxScaler`. This step helps the model to learn more effectively.
+
+2. **Prepare the Data for Training:**
+   Split the data into training and testing datasets. You will also need to create sequences of past stock prices to predict future prices.
+
+Run the following code to preprocess the data:
+
+```python
+from sklearn.preprocessing import MinMaxScaler
+
+# Initialize the scaler
+scaler = MinMaxScaler(feature_range=(0, 1))
+
+# Normalize the 'Close' price data
+data_scaled = scaler.fit_transform(data['Close'].values.reshape(-1, 1))
+
+# Create the training and testing datasets
+train_size = int(len(data) * 0.8)
+train_data = data_scaled[:train_size]
+test_data = data_scaled[train_size:]
+
+# Prepare sequences for training (use the past 100 days to predict the next day)
+x_train = []
+y_train = []
+for i in range(100, len(train_data)):
+    x_train.append(train_data[i-100:i])
+    y_train.append(train_data[i, 0])
+
+x_train = np.array(x_train)
+y_train = np.array(y_train)
+
+# Similarly, prepare the test data
+x_test = []
+y_test = []
+for i in range(100, len(test_data)):
+    x_test.append(test_data[i-100:i])
+    y_test.append(test_data[i, 0])
+
+x_test = np.array(x_test)
+y_test = np.array(y_test)
+```
