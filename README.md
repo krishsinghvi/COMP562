@@ -103,7 +103,7 @@ y_test = []
 for i in range(100, len(test_data)):
     x_test.append(test_data[i-100:i])
     y_test.append(test_data[i, 0])
-
+```
 ### Step 6: Build the Model
 
 Now that the data is preprocessed, you can proceed to build the model. In this step, we will create an LSTM (Long Short-Term Memory) model, which is ideal for time series forecasting like stock prices.
