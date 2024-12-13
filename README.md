@@ -1,4 +1,5 @@
 Stock Price Prediction Using LSTM
+
 This project is a stock price prediction model built using Long Short-Term Memory (LSTM) networks. The goal of the project is to predict the future stock prices of a company based on its historical stock prices. We utilize time series data and apply LSTM, a type of recurrent neural network (RNN), to model the sequential nature of the stock price data.
 
 Table of Contents
