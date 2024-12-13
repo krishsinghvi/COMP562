@@ -38,6 +38,24 @@ The stock price data is preprocessed, normalized, and used to train an LSTM mode
 
 Before running the project, you'll need to install the necessary dependencies. The required packages are listed in the `requirements.txt` file. To install them, run the following command in your terminal:
 
+### Step 4: Load the Dataset
+
+The project requires a dataset of historical stock prices for training and testing the model. Make sure the dataset is in the correct format, typically a CSV file containing stock prices, including the 'Close' price for each day.
+
+1. Download the dataset (or use your own).
+2. Ensure that the dataset has the necessary columns, such as `Date` and `Close`.
+3. Load the dataset into the project by running the following code:
+
+```python
+import pandas as pd
+
+# Load your dataset
+data = pd.read_csv('path/to/your/dataset.csv')
+
+# Check the first few rows of the dataset
+data.head()
+
+
 ```bash
 pip install -r requirements.txt
 
