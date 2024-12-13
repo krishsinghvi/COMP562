@@ -15,23 +15,22 @@ The stock price data is preprocessed, normalized, and used to train an LSTM mode
    ```bash
    git clone https://github.com/yourusername/stock-price-prediction.git
    cd stock-price-prediction
+   ```
 
+### 2. **Set Up the Python Environment**
+   Create a virtual environment to isolate your project dependencies.
 
-###2. Set Up the Python Environment
-Create a virtual environment to isolate your project dependencies.
+   - **Create a virtual environment**:
+     ```bash
+     python -m venv venv
+     ```
 
-Create a virtual environment:
-
-bash
-Copy code
-python -m venv venv
-Activate the virtual environment:
-
-On Windows:
-bash
-Copy code
-venv\Scripts\activate
-On macOS/Linux:
-bash
-Copy code
-source venv/bin/activate
+   - **Activate the virtual environment**:
+     - On **Windows**:
+       ```bash
+       venv\Scripts\activate
+       ```
+     - On **macOS/Linux**:
+       ```bash
+       source venv/bin/activate
+       ```
