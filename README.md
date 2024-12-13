@@ -104,6 +104,43 @@ for i in range(100, len(test_data)):
     x_test.append(test_data[i-100:i])
     y_test.append(test_data[i, 0])
 
+### Step 6: Build the Model
+
+Now that the data is preprocessed, you can proceed to build the model. In this step, we will create an LSTM (Long Short-Term Memory) model, which is ideal for time series forecasting like stock prices.
+
+1. **Define the Model Architecture:**
+   We will use an LSTM layer followed by Dense layers. LSTM is suitable for sequence data and will help in predicting future stock prices based on past data.
+
+Run the following code to define the model architecture:
+
+```python
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout
+
+# Initialize the model
+model = Sequential()
+
+# Add an LSTM layer with 50 units and return sequences to the next LSTM layer
+model.add(LSTM(units=50, return_sequences=True, input_shape=(x_train.shape[1], x_train.shape[2])))
+
+# Add a Dropout layer to prevent overfitting
+model.add(Dropout(0.2))
+
+# Add another LSTM layer
+model.add(LSTM(units=50, return_sequences=False))
+
+# Add a Dropout layer
+model.add(Dropout(0.2))
+
+# Add a Dense layer for the output
+model.add(Dense(units=1))
+
+# Compile the model
+model.compile(optimizer='adam', loss='mean_squared_error')
+
+# Display the model summary
+model.summary()
+
 x_test = np.array(x_test)
 y_test = np.array(y_test)
 ```
